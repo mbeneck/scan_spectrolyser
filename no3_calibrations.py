@@ -48,3 +48,7 @@ def one_wavelength(df, **kwargs):
         df[prefix+'one_wavelength_no3'] = df[prefix+'one_wavelength']*slope+intercept
         
     return df
+
+def pons_calibration(df, **kwargs):
+    do_stuff
+    return the_answer
