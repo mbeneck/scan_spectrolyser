@@ -14,7 +14,7 @@ def import_scan_fp(path):
 
 def get_fp_files(directory):
     # List all files in the directory ending with .fp
-    return [f for f in os.listdir(directory) if f.endswith('.fp')]
+    return [directory + f for f in os.listdir(directory) if f.endswith('.fp')]
 
 
 def import_all_scan_fp(directory):
