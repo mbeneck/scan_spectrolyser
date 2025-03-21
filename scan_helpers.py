@@ -20,7 +20,7 @@ def get_fp_files(directory):
 def import_all_scan_fp(directory):
     paths = get_fp_files(directory)
     files = [import_scan_fp(path) for path in paths]
-    return pd.concat(files).drop_duplicates().reset_index()
+    return pd.concat(files).drop_duplicates()
 
 def apply_calibrations(df, calibrations, calibrations_kwargs):
     for calibration in calibrations:
