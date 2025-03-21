@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 
 def plot_scan_fp(df, measurement, **kwargs):
-    df.T.drop('Date/Time').plot(y=measurement, xlabel = 'Wavelength (nm)', ylabel= 'Absorbance', **kwargs)
+    df.T.plot(y=measurement, xlabel = 'Wavelength (nm)', ylabel= 'Absorbance', **kwargs)
 
 def import_scan_fp(path):
     df = pd.read_csv(path, sep='\t', header=1).drop('Status_0', axis=1)
@@ -20,7 +20,7 @@ def get_fp_files(directory):
 def import_all_scan_fp(directory):
     paths = get_fp_files(directory)
     files = [import_scan_fp(path) for path in paths]
-    return pd.concat(files).drop_duplicates()
+    return pd.concat(files).drop_duplicates().sort_values(by='Date/Time')
 
 def apply_calibrations(df, calibrations, calibrations_kwargs):
     for calibration in calibrations:

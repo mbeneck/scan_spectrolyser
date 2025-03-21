@@ -11,7 +11,7 @@ def second_derivative(df, **kwargs):
     intercept = kwargs.get('intercept', 0)
     prefix = kwargs.get('prefix', '')
     
-    df_2d = df.drop('Date/Time', axis=1).transform(lambda x: savgol_filter(x, window_size, poly_order, deriv=2),axis=1)
+    df_2d = df.transform(lambda x: savgol_filter(x, window_size, poly_order, deriv=2),axis=1)
     df[prefix+"second_derivative"]  = df_2d[wavelength]
     
     if(output_calibrated):
