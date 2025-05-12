@@ -6,7 +6,7 @@ def second_derivative(df, **kwargs):
     output_calibrated = kwargs.get('output_calibrated', True)
     window_size = kwargs.get('window_size', 3)
     poly_order = kwargs.get('poly_order',2)
-    wavelength = kwargs.get('wavelength', "227.50")
+    wavelength = kwargs.get('wavelength', 227.50)
     slope = kwargs.get('slope', 1)
     intercept = kwargs.get('intercept', 0)
     prefix = kwargs.get('prefix', '')
@@ -21,8 +21,8 @@ def second_derivative(df, **kwargs):
 
 def two_wavelength(df, **kwargs):
     output_calibrated = kwargs.get('output_calibrated', True)
-    wavelength = kwargs.get('wavelength', '220.00')
-    cdom_wavelength = kwargs.get('cdom_wavelength', '275.00')
+    wavelength = kwargs.get('wavelength', 220.00)
+    cdom_wavelength = kwargs.get('cdom_wavelength', 275.00)
     alpha = kwargs.get('alpha', 2)
     slope = kwargs.get('slope', 1)
     intercept = kwargs.get('intercept', 0)
@@ -37,7 +37,7 @@ def two_wavelength(df, **kwargs):
 
 def one_wavelength(df, **kwargs):
     output_calibrated = kwargs.get('output_calibrated', True)
-    wavelength = kwargs.get('wavelength', '220.00')
+    wavelength = kwargs.get('wavelength', 220.00)
     slope = kwargs.get('slope', 1)
     intercept = kwargs.get('intercept', 0)
     prefix = kwargs.get('prefix', '')
