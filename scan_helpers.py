@@ -64,3 +64,7 @@ def calculate_turbidity_spectra(series):
     coeff = fit_turbidity_polynomial(series)
     turb_vals = pd.Series(np.polyval(coeff, series.index.values.astype(float)), index=series.index)
     return turb_vals
+
+def remove_invalid_abs(df, abs_thresh=40):
+    index = df.max(axis=1) <= abs_thresh
+    return df[index]
