@@ -61,7 +61,7 @@ def fit_turbidity_polynomial(series):
 
 def calculate_turbidity_spectra(series):
     series = series.dropna()
-    coeff = fit_turbidity_polynomial(series)
+    coeff = fit_turbidity_polynomial(series.loc[380.0:700.0])
     turb_vals = pd.Series(np.polyval(coeff, series.index.values.astype(float)), index=series.index)
     return turb_vals
 
