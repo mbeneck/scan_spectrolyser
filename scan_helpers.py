@@ -5,6 +5,8 @@ import numpy as np
 import os
 from datetime import datetime, timedelta
 import pytz
+from scipy.signal import savgol_filter
+
 
 def get_fp_files(directory):
     # List all files in the directory ending with .fp
@@ -68,3 +70,11 @@ def calculate_turbidity_spectra(series):
 def remove_invalid_abs(df, abs_thresh=40):
     index = df.max(axis=1) <= abs_thresh
     return df[index]
+
+def calc_savgol_derivative(df, deriv=1, **kwargs):
+    output_calibrated = kwargs.get('output_calibrated', True)
+    window_size = kwargs.get('window_size', 3)
+    poly_order = kwargs.get('poly_order',2)
+
+    savgol_df = df.transform(lambda x: savgol_filter(x, window_size, poly_order, deriv=deriv),axis=1)
+    return savgol_df
